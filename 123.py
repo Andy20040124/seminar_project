@@ -39,7 +39,7 @@ def get_website_content(url):
             big_title = content.find_all("title")
             paragraphs = content.find_all("p")
             
-            # 🔹 5. 篩選出包含關鍵字的段落
+            # 篩選出包含關鍵字的段落
             matching_paragraphs = [p.get_text(strip=True) for p in paragraphs  or big_title if keyword in p.get_text()]
             
         
