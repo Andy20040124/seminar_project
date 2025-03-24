@@ -25,7 +25,7 @@ def get_page_title(url):
     except Exception as e:
         return f"can't get title ({e})"
 
-def get_website_content(url):
+def get_website_content(url,keyword):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
     }
@@ -39,9 +39,13 @@ def get_website_content(url):
             big_title = content.find_all("title")
             paragraphs = content.find_all("p")
             
+            print(big_title)
             # 篩選出包含關鍵字的段落
-            matching_paragraphs = [p.get_text(strip=True) for p in paragraphs  or big_title if keyword in p.get_text()]
-            
+            matching_paragraphs = [ct.get_text(strip=True) for ct in paragraphs  or big_title if keyword in ct.get_text()]
+            if matching_paragraphs:
+                print(matching_paragraphs)
+            else: 
+                 print("nothing")       
         
     except Exception as e:
         return f"can't get title ({e})"
@@ -54,7 +58,7 @@ if __name__ == "__main__":
     print("\n搜尋結果:")
     for idx, link in enumerate(search_results, 1):
         title = get_page_title(link)
-        get_website_content(link)
+        get_website_content(link,keyword)
         result_line = f"{idx}. {title} - {link}"
         print(result_line)
         output_lines.append(result_line)
