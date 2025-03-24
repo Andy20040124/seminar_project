@@ -2,8 +2,7 @@ import requests
 import shutil
 from bs4 import BeautifulSoup # get clean data
 from googlesearch import search #google search for the content
-from transformers import LongformerModel
-model = LongformerModel.from_pretrained('ValkyriaLenneth/longformer_zh')
+import sumy
 
 url = 'https://pipingtech.com/resources/faqs/what-is-u-stamp-certification/'
 keyword = "U-stamp"
