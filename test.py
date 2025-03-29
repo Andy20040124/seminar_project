@@ -15,7 +15,7 @@ from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.edmundson import EdmundsonSummarizer
 from sumy.nlp.stemmers import Stemmer
 from sumy.utils import get_stop_words
-nltk.download('punkt_tab')
+#nltk.download('punkt_tab')
 
 url = 'https://pipingtech.com/resources/faqs/what-is-u-stamp-certification/'
 keyword = "U-stamp"
